@@ -1,0 +1,971 @@
+<!DOCTYPE html>
+<html lang="pt-AO">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bookstream - 20 Planilhas | 5.000 KZ (Última Chance)</title>
+    <meta name="description" content="20 Planilhas profissionais. Apenas 3 vagas. Preço sobe amanhã. Finalize em 2 minutos.">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        
+        html, body {
+            scroll-behavior: smooth;
+        }
+        
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            line-height: 1.6;
+            color: #2c3e50;
+            background: #fff;
+            overflow-x: hidden;
+        }
+        
+        .container { max-width: 1000px; margin: 0 auto; padding: 0 20px; }
+        
+        /* ANIMATIONS */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+        
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+        }
+        
+        @keyframes slideDown {
+            from {
+                opacity: 0;
+                transform: translateY(-20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        @keyframes shimmer {
+            0% { background-position: -1000px 0; }
+            100% { background-position: 1000px 0; }
+        }
+        
+        .fade-in { animation: fadeInUp 0.8s ease-out; }
+        .fade-in-delay-1 { animation: fadeInUp 0.8s ease-out 0.1s both; }
+        .fade-in-delay-2 { animation: fadeInUp 0.8s ease-out 0.2s both; }
+        .fade-in-delay-3 { animation: fadeInUp 0.8s ease-out 0.3s both; }
+        .fade-in-delay-4 { animation: fadeInUp 0.8s ease-out 0.4s both; }
+        
+        /* NAVBAR */
+        nav {
+            padding: 15px 0;
+            border-bottom: 1px solid #f0f0f0;
+            animation: slideDown 0.6s ease-out;
+        }
+        
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo {
+            font-weight: 800;
+            font-size: 22px;
+            color: #1e3a8a;
+        }
+        
+        .logo span { color: #d97942; }
+        
+        .urgency-badge {
+            background: #ff4444;
+            color: white;
+            padding: 6px 12px;
+            border-radius: 20px;
+            font-size: 11px;
+            font-weight: 700;
+            animation: pulse 2s infinite;
+        }
+        
+        /* HERO */
+        .hero {
+            padding: 60px 0 40px;
+            text-align: center;
+        }
+        
+        .hero h1 {
+            font-size: 48px;
+            font-weight: 900;
+            margin-bottom: 15px;
+            color: #1a1a1a;
+            line-height: 1.2;
+        }
+        
+        .hero h1 .red {
+            color: #ff4444;
+        }
+        
+        .subheading {
+            font-size: 18px;
+            color: #666;
+            margin-bottom: 25px;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        
+        .urgency-section {
+            background: linear-gradient(135deg, #ff4444 0%, #ff6b6b 100%);
+            color: white;
+            padding: 20px;
+            border-radius: 12px;
+            margin: 25px 0;
+            display: inline-block;
+            animation: fadeInUp 0.8s ease-out 0.2s both;
+        }
+        
+        .urgency-section strong {
+            font-size: 18px;
+            display: block;
+            margin-bottom: 10px;
+        }
+        
+        /* TIMER */
+        .timer-box {
+            background: white;
+            border: 2px solid #ff4444;
+            padding: 20px;
+            border-radius: 12px;
+            display: inline-block;
+            margin: 20px 0;
+            animation: fadeInUp 0.8s ease-out 0.3s both;
+        }
+        
+        .timer-box p {
+            font-size: 12px;
+            color: #999;
+            margin-bottom: 10px;
+        }
+        
+        .timer {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 10px;
+            margin: 15px 0;
+        }
+        
+        .timer-item {
+            background: #f8f9fa;
+            padding: 15px;
+            border-radius: 8px;
+            border: 1px solid #ff4444;
+        }
+        
+        .timer-number {
+            font-size: 28px;
+            font-weight: 800;
+            color: #1e3a8a;
+            line-height: 1;
+        }
+        
+        .timer-label {
+            font-size: 11px;
+            color: #999;
+            margin-top: 8px;
+        }
+        
+        .timer-colon {
+            font-size: 24px;
+            color: #ff4444;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 800;
+        }
+        
+        /* PRICE */
+        .price-highlight {
+            background: #fff8f0;
+            border: 2px solid #d97942;
+            padding: 25px;
+            border-radius: 12px;
+            margin: 25px 0;
+            animation: fadeInUp 0.8s ease-out 0.4s both;
+        }
+        
+        .price-highlight h2 {
+            font-size: 14px;
+            color: #999;
+            margin-bottom: 10px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        
+        .price-main {
+            font-size: 54px;
+            font-weight: 900;
+            color: #1e3a8a;
+            margin: 10px 0;
+        }
+        
+        .price-subtext {
+            font-size: 13px;
+            color: #ff4444;
+            font-weight: 700;
+            margin: 15px 0 0 0;
+        }
+        
+        .price-old {
+            font-size: 24px;
+            color: #999;
+            text-decoration: line-through;
+        }
+        
+        /* IMAGE */
+        .image-section {
+            margin: 50px 0;
+            text-align: center;
+        }
+        
+        .image-section h3 {
+            font-size: 16px;
+            color: #1a1a1a;
+            margin-bottom: 20px;
+            font-weight: 700;
+        }
+        
+        .planilha-image {
+            max-width: 100%;
+            height: auto;
+            border-radius: 12px;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.15);
+            animation: fadeInUp 0.8s ease-out 0.3s both;
+            border: 3px solid #1e3a8a;
+        }
+        
+        /* CTA BUTTON */
+        .cta-button {
+            background: linear-gradient(135deg, #1e3a8a 0%, #0f172a 100%);
+            color: white;
+            border: none;
+            padding: 20px 60px;
+            font-size: 18px;
+            font-weight: 800;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.3s;
+            text-decoration: none;
+            display: inline-block;
+            position: relative;
+            overflow: hidden;
+            animation: pulse 2s infinite;
+        }
+        
+        .cta-button:before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: rgba(255,255,255,0.2);
+            transition: left 0.5s;
+        }
+        
+        .cta-button:hover:before {
+            left: 100%;
+        }
+        
+        .cta-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 15px 35px rgba(30, 58, 138, 0.4);
+        }
+        
+        .cta-subtext {
+            font-size: 13px;
+            color: #999;
+            margin-top: 15px;
+            font-weight: 500;
+        }
+        
+        /* STATS */
+        .stats {
+            background: #f8f9fa;
+            padding: 30px;
+            border-radius: 12px;
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+            margin: 40px 0;
+            animation: fadeInUp 0.8s ease-out 0.5s both;
+        }
+        
+        .stat {
+            text-align: center;
+        }
+        
+        .stat-number {
+            font-size: 32px;
+            font-weight: 900;
+            color: #1e3a8a;
+        }
+        
+        .stat-label {
+            font-size: 12px;
+            color: #999;
+            margin-top: 8px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+        
+        /* SLOTS */
+        .slots-remaining {
+            background: linear-gradient(135deg, #ff4444 0%, #ff6b6b 100%);
+            color: white;
+            padding: 20px;
+            border-radius: 12px;
+            text-align: center;
+            margin: 30px 0;
+            animation: fadeInUp 0.8s ease-out 0.6s both;
+        }
+        
+        .slots-remaining h3 {
+            font-size: 14px;
+            margin-bottom: 10px;
+            opacity: 0.9;
+        }
+        
+        .slots-count {
+            font-size: 42px;
+            font-weight: 900;
+        }
+        
+        .slots-bar {
+            background: rgba(255,255,255,0.3);
+            height: 8px;
+            border-radius: 4px;
+            margin-top: 15px;
+            overflow: hidden;
+        }
+        
+        .slots-fill {
+            background: white;
+            height: 100%;
+            width: 30%;
+            animation: slideDown 1s ease-out;
+        }
+        
+        /* FEATURES */
+        .features {
+            padding: 50px 0;
+        }
+        
+        .features h2 {
+            font-size: 36px;
+            text-align: center;
+            margin-bottom: 40px;
+            color: #1a1a1a;
+        }
+        
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 30px;
+        }
+        
+        .feature {
+            padding: 25px;
+            background: #f8f9fa;
+            border-radius: 12px;
+            border-left: 4px solid #d97942;
+            transition: all 0.3s;
+            animation: fadeInUp 0.8s ease-out;
+        }
+        
+        .feature:nth-child(1) { animation-delay: 0.1s; }
+        .feature:nth-child(2) { animation-delay: 0.2s; }
+        .feature:nth-child(3) { animation-delay: 0.3s; }
+        .feature:nth-child(4) { animation-delay: 0.4s; }
+        
+        .feature:hover {
+            transform: translateY(-5px);
+            background: white;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+        }
+        
+        .feature-icon {
+            font-size: 28px;
+            margin-bottom: 12px;
+        }
+        
+        .feature h3 {
+            font-size: 16px;
+            color: #1a1a1a;
+            margin-bottom: 8px;
+        }
+        
+        .feature p {
+            font-size: 13px;
+            color: #666;
+            line-height: 1.6;
+        }
+        
+        /* TESTIMONIALS */
+        .testimonials {
+            background: white;
+            padding: 50px 0;
+        }
+        
+        .testimonials h2 {
+            font-size: 36px;
+            text-align: center;
+            margin-bottom: 40px;
+        }
+        
+        .testimonials-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 25px;
+        }
+        
+        .testimonial {
+            background: #f8f9fa;
+            padding: 25px;
+            border-radius: 12px;
+            border-left: 4px solid #1e3a8a;
+            transition: all 0.3s;
+            animation: fadeInUp 0.8s ease-out;
+        }
+        
+        .testimonial:nth-child(1) { animation-delay: 0.2s; }
+        .testimonial:nth-child(2) { animation-delay: 0.3s; }
+        .testimonial:nth-child(3) { animation-delay: 0.4s; }
+        .testimonial:nth-child(4) { animation-delay: 0.5s; }
+        
+        .testimonial:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+        }
+        
+        .testimonial-text {
+            font-size: 13px;
+            color: #333;
+            margin-bottom: 15px;
+            line-height: 1.6;
+            font-style: italic;
+        }
+        
+        .testimonial-author {
+            font-weight: 700;
+            color: #1e3a8a;
+            font-size: 13px;
+        }
+        
+        .testimonial-role {
+            font-size: 11px;
+            color: #999;
+            margin-top: 4px;
+        }
+        
+        .stars {
+            color: #fbbf24;
+            font-size: 12px;
+            margin-bottom: 10px;
+        }
+        
+        /* STAT CARDS (Override testimonial for statistics) */
+        .stat-card {
+            text-align: center;
+            border-left: none;
+            border-top: 4px solid #1e3a8a;
+            padding: 30px 20px;
+        }
+        
+        .stat-card .stat-number {
+            font-size: 42px;
+            font-weight: 900;
+            color: #1e3a8a;
+            margin-bottom: 10px;
+            line-height: 1;
+        }
+        
+        .stat-card .stat-label {
+            font-size: 16px;
+            font-weight: 700;
+            color: #2c3e50;
+            margin: 0;
+            text-transform: none;
+            letter-spacing: normal;
+        }
+        
+        .stat-card .stat-detail {
+            font-size: 13px;
+            color: #999;
+            margin-top: 8px;
+            line-height: 1.4;
+        }
+        
+        /* GUARANTEE */
+        .guarantee {
+            background: linear-gradient(135deg, #1e3a8a 0%, #0f172a 100%);
+            color: white;
+            padding: 50px;
+            border-radius: 12px;
+            text-align: center;
+            margin: 50px 0;
+            animation: fadeInUp 0.8s ease-out 0.5s both;
+        }
+        
+        .guarantee h3 {
+            font-size: 28px;
+            margin-bottom: 20px;
+        }
+        
+        .guarantee p {
+            font-size: 15px;
+            margin: 10px 0;
+            line-height: 1.6;
+        }
+        
+        /* FAQ */
+        .faq {
+            padding: 50px 0;
+        }
+        
+        .faq h2 {
+            font-size: 36px;
+            text-align: center;
+            margin-bottom: 40px;
+        }
+        
+        .faq-item {
+            margin-bottom: 20px;
+            padding: 20px;
+            background: #f8f9fa;
+            border-radius: 12px;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+        
+        .faq-item:hover {
+            background: white;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+        }
+        
+        .faq-q {
+            font-weight: 700;
+            color: #1a1a1a;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .faq-icon {
+            font-size: 20px;
+            transition: transform 0.3s;
+        }
+        
+        .faq-item.active .faq-icon {
+            transform: rotate(45deg);
+        }
+        
+        .faq-a {
+            font-size: 13px;
+            color: #666;
+            line-height: 1.6;
+            margin-top: 15px;
+            display: none;
+        }
+        
+        .faq-item.active .faq-a {
+            display: block;
+            animation: fadeIn 0.3s ease-out;
+        }
+        
+        /* FINAL CTA */
+        .final-section {
+            background: linear-gradient(135deg, #1e3a8a 0%, #0f172a 100%);
+            color: white;
+            padding: 60px 0;
+            text-align: center;
+            animation: fadeInUp 0.8s ease-out 0.6s both;
+        }
+        
+        .final-section h2 {
+            font-size: 40px;
+            margin-bottom: 25px;
+            color: white;
+        }
+        
+        .final-section p {
+            font-size: 16px;
+            margin-bottom: 30px;
+            color: #a5f3fc;
+        }
+        
+        /* FOOTER */
+        footer {
+            background: #1a202c;
+            color: #999;
+            padding: 30px 0;
+            text-align: center;
+            font-size: 12px;
+        }
+        
+        /* RESPONSIVE */
+        @media (max-width: 768px) {
+            .hero h1 { font-size: 32px; }
+            .features-grid { grid-template-columns: 1fr; }
+            .testimonials-grid { grid-template-columns: 1fr; }
+            .stats { grid-template-columns: 1fr; }
+            .timer { grid-template-columns: repeat(2, 1fr); }
+            .timer-colon { display: none; }
+        }
+    </style>
+</head>
+<body>
+    <!-- NAVBAR -->
+    <nav>
+        <div class="container">
+            <div class="navbar">
+                <div class="logo">📊 Book<span>stream</span></div>
+                <div class="urgency-badge">🔥 3 VAGAS RESTANTES</div>
+            </div>
+        </div>
+    </nav>
+    
+    <!-- HERO -->
+    <section class="hero">
+        <div class="container">
+            <h1 class="fade-in">
+                20 Planilhas Profissionais<br>
+                <span class="red">Por apenas 5.000 KZ</span>
+            </h1>
+            <p class="subheading fade-in-delay-1">
+                Mas essa oferta é por POUCO TEMPO
+            </p>
+            
+            <div class="urgency-section fade-in-delay-2">
+                <strong>⏰ PREÇO SOBE PARA 7.000 KZ AMANHÃ</strong>
+                O preço de hoje é apenas para as próximas 24h
+            </div>
+            
+            <!-- TIMER -->
+            <div class="timer-box fade-in-delay-2">
+                <p>OFERTA VÁLIDA EM:</p>
+                <div class="timer">
+                    <div class="timer-item">
+                        <div class="timer-number" id="hours">24</div>
+                        <div class="timer-label">HORAS</div>
+                    </div>
+                    <div class="timer-colon">:</div>
+                    <div class="timer-item">
+                        <div class="timer-number" id="minutes">00</div>
+                        <div class="timer-label">MINUTOS</div>
+                    </div>
+                    <div class="timer-colon">:</div>
+                    <div class="timer-item">
+                        <div class="timer-number" id="seconds">00</div>
+                        <div class="timer-label">SEGUNDOS</div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- PRICE -->
+            <div class="price-highlight fade-in-delay-3">
+                <h2>Oferta Especial</h2>
+                <div>
+                    <span class="price-old">7.000 KZ</span>
+                    <div class="price-main">5.000 KZ</div>
+                </div>
+                <p class="price-subtext">⚡ ECONOMIZA 2.000 KZ EM 24H</p>
+            </div>
+            
+            <!-- SLOTS -->
+            <div class="slots-remaining fade-in-delay-4">
+                <h3>Vagas Disponíveis Esta Semana:</h3>
+                <div class="slots-count">3</div>
+                <div class="slots-bar">
+                    <div class="slots-fill"></div>
+                </div>
+                <p style="margin-top: 10px; font-size: 12px;">Mais 7 pessoas estão vendo agora</p>
+            </div>
+            
+            <!-- BUTTON -->
+            <a href="https://okandapay.com/checkout/planilha-de-gestao-financeira-mu9bqqyi?pid=bc0c2bae-12d8-482b-86a8-5abe2120d7c3" class="cta-button" style="margin: 30px 0;">
+                COMPRAR AGORA - 5.000 KZ ✓
+            </a>
+            <div class="cta-subtext">
+                ✅ Acesso imediato<br>
+                ✅ Garantia 30 dias money-back<br>
+                ✅ Suporte WhatsApp 24h
+            </div>
+            
+            <!-- STATS -->
+            <div class="stats fade-in-delay-1">
+                <div class="stat">
+                    <div class="stat-number">200+</div>
+                    <div class="stat-label">Clientes Satisfeitos</div>
+                </div>
+                <div class="stat">
+                    <div class="stat-number">4.9★</div>
+                    <div class="stat-label">Avaliação</div>
+                </div>
+                <div class="stat">
+                    <div class="stat-number">5.000h+</div>
+                    <div class="stat-label">Economizadas</div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- IMAGE SECTION -->
+    <section class="image-section">
+        <div class="container">
+            <h3>Veja como funcionam as planilhas</h3>
+            <img src="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQEAYABgAAD/2wBDAAIBAQIBAQICAgICAgICAwUDAwwUDAwsMCwwMCAwNC0uNTU8MCwsMCAwNDg0PEREPDw8NDw8PEhISEhISEhISEhL/2wBDAQICAgICAwUDAwwUCAcIDAwwDAwwMCAwMDAwMCAwMDAwMCAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwL/wAARCAB4AyADASIAAhEBAxEB/8QAHwAAAQUBAQEBAQEAAAAAAAAAAAECAwQFBgcICQoL/8QAtRAAAgEDAwIEAwUFBAQAAAF9AQIDAAQRBRIhMUEGE1FhByJxFDKBkaEII0KxwRVS0fAkM2JyggkKFhcYGRolJicoKSo0NTY3ODk6Q0RFRkdISUpTVFVWV1hZWmNkZWZnaGlqc3R1dnd4eXqDhIWGh4iJipKTlJWWmZqjpKWmp6ipqrKztLW2t7i5utLT1NXW19jZ2uHi4+Tl5ufo6erx8vP09fb3+Pn6/8QAHwEAAwEBAQEBAQAAAAAAAAECAwQFBgcICQoL/8QAtREAAgECBAQDBAcFBAQAAQJ3AAECAxEEBSExBhJBUQdhcRMiMoEIFEKRobHBCSMzUvAVYnLRChYkNOEl8RcYGRomJygpKjU2Nzg5OkNERUZHSElKU1RVVldYWWpzdHV2d3h5eoKDhIWGh4iJipKTlJWWmZqjpKWmp6ipqrKztLW2t7i5usPExcbHyMnK0tPU1dbX2Nna4uPk5ebn6Onq8vP09fb3+Pn6/9oADAMBAAIRAxEAPwD9/KKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigD//2Q==" alt="Planilha profissional Bookstream" class="planilha-image">
+        </div>
+    </section>
+    
+    <!-- FEATURES -->
+    <section class="features">
+        <div class="container">
+            <h2>Isso que você recebe:</h2>
+            <div class="features-grid">
+                <div class="feature">
+                    <div class="feature-icon">💳</div>
+                    <h3>8 Planilhas Finanças</h3>
+                    <p>Orçamento, fluxo caixa, empréstimos, investimentos, notas fiscais, rentabilidade, cartões e metas.</p>
+                </div>
+                <div class="feature">
+                    <div class="feature-icon">💰</div>
+                    <h3>5 Planilhas Vendas</h3>
+                    <p>Controle vendas, pipeline, CRM, promoções e agenda follow-up.</p>
+                </div>
+                <div class="feature">
+                    <div class="feature-icon">⚙️</div>
+                    <h3>4 Planilhas Operacional</h3>
+                    <p>Estoque, projetos, RH e frota com alertas automáticos.</p>
+                </div>
+                <div class="feature">
+                    <div class="feature-icon">✨</div>
+                    <h3>3 Planilhas Pessoal</h3>
+                    <p>Fitness, leitura e hábitos com rastreamento visual de progresso.</p>
+                </div>
+                <div class="feature">
+                    <div class="feature-icon">🔄</div>
+                    <h3>Excel + Google Sheets</h3>
+                    <p>Ambos os formatos. Use online ou offline. Sincroniza automático.</p>
+                </div>
+                <div class="feature">
+                    <div class="feature-icon">🎯</div>
+                    <h3>Suporte Premium 24h</h3>
+                    <p>WhatsApp, email, dúvidas respondidas em <2 horas.</p>
+                </div>
+                <div class="feature">
+                    <div class="feature-icon">🚀</div>
+                    <h3>Atualizações Perpétuas</h3>
+                    <p>Novas planilhas lançadas? Você recebe automaticamente. Sem pagar mais.</p>
+                </div>
+                <div class="feature">
+                    <div class="feature-icon">📊</div>
+                    <h3>Setup em 5 Minutos</h3>
+                    <p>Nada para configurar. Tudo pronto. Você só digita os dados.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- SOCIAL PROOF - STATISTICS -->
+    <section class="testimonials">
+        <div class="container">
+            <h2>Números que falam por si:</h2>
+            <div class="testimonials-grid">
+                <div class="testimonial stat-card">
+                    <div class="stat-number">200+</div>
+                    <div class="stat-label">Clientes Satisfeitos</div>
+                    <div class="stat-detail">Em Luanda, Benguela, Huíla, Cabinda e Zaire</div>
+                </div>
+                <div class="testimonial stat-card">
+                    <div class="stat-number">4.9★</div>
+                    <div class="stat-label">Rating Médio</div>
+                    <div class="stat-detail">Baseado em avaliações reais de clientes</div>
+                </div>
+                <div class="testimonial stat-card">
+                    <div class="stat-number">5.000+</div>
+                    <div class="stat-label">Horas Economizadas</div>
+                    <div class="stat-detail">Pelos nossos clientes em trabalho manual</div>
+                </div>
+                <div class="testimonial stat-card">
+                    <div class="stat-number">30 dias</div>
+                    <div class="stat-label">Garantia Money-Back</div>
+                    <div class="stat-detail">Se não ficar satisfeito, devolvemos 100%</div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- GUARANTEE -->
+    <div class="container">
+        <div class="guarantee">
+            <h3>🛡️ Garantia de 30 Dias</h3>
+            <p>Não gostar? Devolvemos seu dinheiro.</p>
+            <p>Sem perguntas. Sem burocracia.</p>
+            <p style="margin-top: 20px; font-style: italic; opacity: 0.9;">Mas garantimos que vai gostar.</p>
+        </div>
+    </div>
+    
+    <!-- FAQ -->
+    <section class="faq">
+        <div class="container">
+            <h2>Dúvidas resolvidas em 2 minutos:</h2>
+            
+            <div class="faq-item active">
+                <div class="faq-q">
+                    Preciso entender Excel? <span class="faq-icon">+</span>
+                </div>
+                <div class="faq-a">Não. Tudo é automático. Você digita os dados e o gráfico gera sozinho. Se tiver dúvida, respondemos via WhatsApp.</div>
+            </div>
+            
+            <div class="faq-item">
+                <div class="faq-q">
+                    E se eu não gostar? <span class="faq-icon">+</span>
+                </div>
+                <div class="faq-a">Garantia 30 dias. Devolvemos 100% do seu dinheiro se não ficar satisfeito. Sem perguntas, sem burocracia.</div>
+            </div>
+            
+            <div class="faq-item">
+                <div class="faq-q">
+                    Quanto tempo leva para receber? <span class="faq-icon">+</span>
+                </div>
+                <div class="faq-a">Imediato. Logo após confirmar pagamento, você recebe email com download de todos os arquivos. Tudo em 5 minutos.</div>
+            </div>
+            
+            <div class="faq-item">
+                <div class="faq-q">
+                    Posso compartilhar com minha equipe? <span class="faq-icon">+</span>
+                </div>
+                <div class="faq-a">Sim! Você pode compartilhar com quantas pessoas quiser da sua empresa. Nenhuma restrição.</div>
+            </div>
+            
+            <div class="faq-item">
+                <div class="faq-q">
+                    Funciona offline? <span class="faq-icon">+</span>
+                </div>
+                <div class="faq-a">Excel sim, funciona 100% offline. Google Sheets funciona melhor com internet, mas sincroniza automático na nuvem.</div>
+            </div>
+            
+            <div class="faq-item">
+                <div class="faq-q">
+                    Vocês fazem customizações? <span class="faq-icon">+</span>
+                </div>
+                <div class="faq-a">Sim! Pequenas customizações são grátis. Só mandar email ou chamar no WhatsApp após compra.</div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- FINAL CTA -->
+    <section class="final-section">
+        <div class="container">
+            <h2>Sua chance de transformar seu negócio é AGORA</h2>
+            <p>Nas próximas 24h você pode começar de graça com garantia</p>
+            <a href="https://okandapay.com/checkout/planilha-de-gestao-financeira-mu9bqqyi?pid=bc0c2bae-12d8-482b-86a8-5abe2120d7c3" class="cta-button" style="background: white; color: #1e3a8a; font-size: 16px;">
+                FINALIZAR COMPRA - 5.000 KZ
+            </a>
+        </div>
+    </section>
+    
+    <!-- FOOTER -->
+    <footer>
+        <div class="container">
+            <p>&copy; 2026 Bookstream. Todos os direitos reservados.</p>
+            <p>Oferecido com ❤️ em Luanda, Angola</p>
+        </div>
+    </footer>
+    
+    <script>
+        // TIMER COUNTDOWN
+        function startTimer() {
+            let timeRemaining = 86400; // 24 horas em segundos
+            
+            function updateTimer() {
+                const hours = Math.floor(timeRemaining / 3600);
+                const minutes = Math.floor((timeRemaining % 3600) / 60);
+                const seconds = timeRemaining % 60;
+                
+                document.getElementById('hours').textContent = String(hours).padStart(2, '0');
+                document.getElementById('minutes').textContent = String(minutes).padStart(2, '0');
+                document.getElementById('seconds').textContent = String(seconds).padStart(2, '0');
+                
+                if (timeRemaining > 0) {
+                    timeRemaining--;
+                    setTimeout(updateTimer, 1000);
+                } else {
+                    document.querySelector('.timer-box').style.display = 'none';
+                }
+            }
+            
+            updateTimer();
+        }
+        
+        // FAQ TOGGLE
+        document.querySelectorAll('.faq-item').forEach(item => {
+            item.addEventListener('click', function() {
+                this.classList.toggle('active');
+                
+                // Fechar outros
+                document.querySelectorAll('.faq-item').forEach(other => {
+                    if (other !== this) other.classList.remove('active');
+                });
+            });
+        });
+        
+        // SCROLL ANIMATIONS
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+        
+        const observer = new IntersectionObserver(function(entries) {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, observerOptions);
+        
+        document.querySelectorAll('.feature, .testimonial, .faq-item').forEach(el => {
+            el.style.opacity = '0';
+            el.style.transform = 'translateY(20px)';
+            el.style.transition = 'all 0.5s ease-out';
+            observer.observe(el);
+        });
+        
+        // START TIMER
+        startTimer();
+        
+        // SMOOTH SCROLL
+        document.querySelectorAll('a[href^="#"]').forEach(a => {
+            a.addEventListener('click', function(e) {
+                const href = this.getAttribute('href');
+                if (href !== '#') {
+                    e.preventDefault();
+                    const target = document.querySelector(href);
+                    if (target) target.scrollIntoView({ behavior: 'smooth' });
+                }
+            });
+        });
+    </script>
+</body>
+</html>
